@@ -669,6 +669,15 @@ end
 function Conceal:PLAYER_REGEN_ENABLED(info, value)
     Conceal:DidExitCombat()
 end
+
+function Conceal:MODIFIER_STATE_CHANGED(key, inOrOut)
+	if ( IsAltKeyDown() ) then
+		Conceal:DidEnterCombat()
+	else
+		Conceal:DidExitCombat()
+	end
+end
+
 --credit https://www.mmo-champion.com/threads/2414999-How-do-I-disable-the-GCD-flash-on-my-bars
 function Conceal:HideGcdFlash() 
     for i,v in pairs(_G) do
@@ -807,5 +816,6 @@ Conceal:RegisterEvent("PLAYER_LEAVE_COMBAT")
 Conceal:RegisterEvent("PLAYER_REGEN_DISABLED")
 Conceal:RegisterEvent("PLAYER_REGEN_ENABLED")
 Conceal:RegisterEvent("PLAYER_TARGET_CHANGED")
+Conceal:RegisterEvent("MODIFIER_STATE_CHANGED")
 
 Conceal:SetScript("OnEvent", Conceal.OnEvent)
