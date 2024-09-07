@@ -5,6 +5,4 @@
 ## Version: 2.1.5
 ## IconTexture: Interface\AddOns\Conceal\Assets\ConcealLogo
 
-## SavedVariables: ConcealDB, ConcealDataBase
-
 Conceal.lua
