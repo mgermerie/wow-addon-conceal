@@ -19,7 +19,7 @@ end
 function Conceal:HideElements()
 	
 	if not MicroMenuContainer:IsMouseOver() then
-		MicroMenuContainer:setAlpha(0);
+		MicroMenuContainer:SetAlpha(0);
 	end
 end
 
@@ -34,3 +34,11 @@ end
 
 
 Conceal:RegisterEvent("MODIFIER_STATE_CHANGED")
+
+
+function Conceal:OnEvent(event, ...)
+	self[event](self, event, ...)
+end
+
+
+Conceal:SetScript("OnEvent", Conceal.OnEvent)
